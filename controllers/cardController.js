@@ -51,10 +51,21 @@ const deleteCard = async (req, res, next) => {
   }
 };
 
+const searchCard = async (req, res, next) => {
+  const { name } = req.body;
+  try {
+    const cards = await Card.find({'name' : new RegExp(name, 'i')});
+    return res.status(200).json(cards);
+  } catch (err) {
+    next(err);
+  }
+};
+
 export default {
   getAllCards,
   createCard,
   getCard,
   updateCard,
   deleteCard,
+  searchCard,
 };

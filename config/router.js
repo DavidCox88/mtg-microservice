@@ -12,4 +12,8 @@ Router.route("/cards/:id")
   .put(cardController.updateCard)
   .delete(cardController.deleteCard);
 
+Router.route("/card/search")
+  .get(cardController.searchCard)
+
+
 export default Router;

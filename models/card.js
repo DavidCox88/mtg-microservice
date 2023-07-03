@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 const cardSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  released: Date,
   manaCost: String,
   cmc: Number,
   type: String,
@@ -13,7 +12,6 @@ const cardSchema = new mongoose.Schema({
   keywords: String,
   setName: String, 
   rarity: String,
-  loyalty: Number,
   smallURI: String,
   mediumURI: String,
   largeURI: String,
