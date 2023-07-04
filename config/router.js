@@ -1,15 +1,22 @@
 import express from "express";
-import moviesController from "../controllers/moviesController.js";
+import cardController from "../controllers/cardController.js";
 
 const Router = express.Router();
 
-Router.route("/movies")
-  .get(moviesController.getAllMovies)
-  .post(moviesController.createMovie);
+Router.route("/cards")
+  .get(cardController.getAllCards)
+  .post(cardController.createCard);
 
-Router.route("/movies/:id")
-  .get(moviesController.getMovie)
-  .put(moviesController.updateMovie)
-  .delete(moviesController.deleteMovie);
+Router.route("/cards/:id")
+  .get(cardController.getCard)
+  .put(cardController.updateCard)
+  .delete(cardController.deleteCard);
+
+Router.route("/card/search")
+  .get(cardController.searchCard)
+
+Router.route("/card/loadlotr")
+  .post(cardController.loadLOTRCards)
+
 
 export default Router;
