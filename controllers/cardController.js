@@ -69,7 +69,7 @@ const searchCard = async (req, res, next) => {
   const { type } = req.body;
   const { oracleText } = req.body;
   const { power } = req.body;
-  const {toughness } = req.body;gio
+  const {toughness } = req.body;
   const { colors } = req.body;
   const { keywords } = req.body;
   const { setName } = req.body;
