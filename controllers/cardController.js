@@ -1,4 +1,15 @@
 import Card from "../models/card.js";
+import * as fs from 'fs';
+
+const loadLOTRCards = async (req, res, next) => {
+  try {
+    const CardsLOTR = JSON.parse(fs.readFileSync('mtg-lotr-cards.json', 'utf-8'));
+    const cards = await Card.create(CardsLOTR);
+    return res.status(201).send(cards);
+  } catch (err) {
+    next(err)
+  }
+}
 
 const getAllCards = async (_req, res, next) => {
   try {
@@ -58,7 +69,7 @@ const searchCard = async (req, res, next) => {
   const { type } = req.body;
   const { oracleText } = req.body;
   const { power } = req.body;
-  const {toughness } = req.body;
+  const {toughness } = req.body;gio
   const { colors } = req.body;
   const { keywords } = req.body;
   const { setName } = req.body;
@@ -89,4 +100,5 @@ export default {
   updateCard,
   deleteCard,
   searchCard,
+  loadLOTRCards,
 };

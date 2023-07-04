@@ -15,5 +15,8 @@ Router.route("/cards/:id")
 Router.route("/card/search")
   .get(cardController.searchCard)
 
+Router.route("/card/loadlotr")
+  .post(cardController.loadLOTRCards)
+
 
 export default Router;
